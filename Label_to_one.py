@@ -20,8 +20,8 @@ def pathExist(path):
         os.makedirs(path)
     return path
 
-Raw_dir = '/data/xiaofeng/EUS/V10/label_all'
-new_dir = '/data/xiaofeng/EUS/V10/label_one/'
+Raw_dir = r'G:\Hospital\case231_revised\gt'
+new_dir = r'G:\Hospital\case231_revised\gt_portal'
 pathExist(new_dir)
 
 start = time()
@@ -29,7 +29,17 @@ for file in tqdm(os.listdir(Raw_dir)):
     seg = sitk.ReadImage(os.path.join(Raw_dir, file), sitk.sitkUInt8)
     seg_array = sitk.GetArrayFromImage(seg)
 
-    seg_array[seg_array > 0] = 1
+    seg_array[seg_array != 1] = 0
+    #seg_array[seg_array == 2] = 1
+
+    # seg_array[seg_array < 3] = 0
+    # seg_array[seg_array > 7] = 0
+    # seg_array[seg_array == 4] = 0
+    # seg_array[seg_array == 5] = 0
+    # seg_array[seg_array == 6] = 0
+    #
+    # seg_array[seg_array == 3] = 0
+    # seg_array[seg_array == 7] = 1
 
     new_seg = sitk.GetImageFromArray(seg_array)
 

@@ -18,8 +18,8 @@ def pathExist(path):
         os.makedirs(path)
     return path
 
-origin_path = '/data/xiaofeng/6.2_ZD_cut_xyz/vessel/'
-tar_path = '/data/xiaofeng/6.2_ZD_cut_xyz/vessel_'
+origin_path = r'G:\Public_Dataset\Radiology\MIDAS\test\nii\predict'
+tar_path = r'G:\Public_Dataset\Radiology\MIDAS\test\nii\predict_'
 pathExist(tar_path)
 
 def remove_small_objects(img):
@@ -237,7 +237,7 @@ def V2():
             liver_seg = skimage.morphology.remove_small_objects(new_seg1, min_size=1000, connectivity=1).astype(seg_array_origin.dtype)
 
             #liver_seg = liver_seg.astype(np.bool)
-            liver_seg = morphology.remove_small_holes(liver_seg, 5e4 , connectivity=2, in_place=True)
+            # liver_seg = morphology.remove_small_holes(liver_seg, 5e4 , connectivity=2, in_place=True)
             liver_seg = liver_seg.astype(np.uint8)
 
             save = sitk.GetImageFromArray(liver_seg)

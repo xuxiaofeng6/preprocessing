@@ -6,7 +6,7 @@ from scipy import ndimage
 import skimage.morphology as morphology
 import skimage.io
 from skimage.measure import label, regionprops
-import matplotlib.pyplot
+# import matplotlib.pyplot
 import SimpleITK as sitk
 
 #Return boundaries of 2d/3d binary image
@@ -21,8 +21,8 @@ def pathExist(path):
         os.makedirs(path)
     return path
 
-origin_path = r'G:\Hospital\ZDH_Brain\Test-brainCTA-Zhongda_\Target_same_spacing\gt_pre'
-skeleton_path = r'G:\Hospital\ZDH_Brain\Test-brainCTA-Zhongda_\Target_same_spacing\pre_skeleton'
+origin_path = r'J:\Dataset\raw_cut_xyz\vessel_one'
+skeleton_path = r'J:\Dataset\raw_cut_xyz\skeleton'
 pathExist(skeleton_path)
 
 def remove_small_objects(img):

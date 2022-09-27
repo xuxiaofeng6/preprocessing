@@ -14,7 +14,7 @@ import pandas as pd
 import csv
 
 spacing_list = []
-ct_path = '/data/xiaofeng/3Dircadb/Train Data Cut region/ct'
+ct_path = r'J:\Dataset\raw_cut_xyz\image'
 
 for file in tqdm(os.listdir(ct_path)):
     print(file)

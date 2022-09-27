@@ -18,7 +18,7 @@
 
 # Settings to use, possible settings are listed in the documentation (section "Customizing the extraction").
 setting:
-  binWidth: 2
+  binWidth: 8
   #interpolator: 'sitkBSpline' # This is an enumerated value, here None is not allowed
   #resampledPixelSpacing: [0.66, 0.66, 0.66]# This disables resampling, as it is interpreted as None, to enable it, specify spacing in x, y, z as [x, y , z]
   weightingNorm: # If no value is specified, it is interpreted as None
@@ -27,14 +27,14 @@ setting:
 imageType:
   Original: {} # no custom settings
   #LoG: {sigma: [0.5, 1.0, 2.0, 3.0, 4.0]} # custom settings defined in-line
-  Wavelet: {}
-  LBP2D: {}
+  #Wavelet: {}
+  #LBP2D: {}
   #LBP3D: {}
   #Square: {}
   #SquareRoot: {}
   #Logarithm: {}
   #Exponential: {}
-  Gradient: {}
+  #Gradient: {}
 # Featureclasses, from which features must be calculated. If a featureclass is not mentioned, no features are calculated
 # for that class. Otherwise, the specified features are calculated, or, if none are specified, all are calculated (excluding redundant/deprecated features).
 #featureClass:

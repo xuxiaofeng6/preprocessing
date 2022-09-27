@@ -8,7 +8,7 @@ from openpyxl import Workbook
 import SimpleITK as sitk
 import numpy as np
 
-params = '/home/xujun/xf/code/preprocessing/mine.yaml'
+params = r'E:\Workspace\torch\preprocessing\mine.yaml'
 extractor = RadiomicsFeatureExtractor(params)
 
 
@@ -23,11 +23,11 @@ extractor.enableAllFeatures()
 setVerbosity(60)
 file = Workbook()
 table = file.create_sheet('data')
-dataDir = '/data/xiaofeng/EUS/all_/'
-out_path = '/data/xiaofeng/EUS/all_/'
-model_name = ['EUS_gradient']
+dataDir = 'I:\case231_cut_xyz'
+out_path = 'I:\case231_cut_xyz'
+model_name = ['CTA']
 
-label_dir = os.path.join(dataDir,'label')
+label_dir = os.path.join(dataDir,'liver')
 
 row = 1
 for index,idx_name in enumerate(sorted(os.listdir(label_dir))):
@@ -36,7 +36,7 @@ for index,idx_name in enumerate(sorted(os.listdir(label_dir))):
 
         label_case = os.path.join(label_dir, idx_name)
 
-        image_case = label_case.replace('label','image')
+        image_case = label_case.replace('liver','ct').replace('.nii','_0000.nii')
 
         result = extractor.execute(image_case, label_case)
         column = 1
